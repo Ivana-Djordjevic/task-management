@@ -4,16 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Im a boilerplate</title>
+  <title>Task Management</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
   <div >
     <header>
+          <h1>Task Management</h1>
       <nav>
+        <a href="/">All tasks</a>
+        <a href="/highPriority">High Priority Tasks</a>
+        <a href="/lowPriority">Low Priority Tasks</a>
+        <a href="/dueSoon">Due Soon</a>
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
+        |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
@@ -28,7 +33,6 @@
     </footer>
   </div>
 
-  <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}

@@ -1,0 +1,26 @@
+ <div>
+    <p>name of task</p>
+    <textarea id="name">{{name}}</textarea>
+</div>
+<div>
+    <p>description of task</p>
+    <textarea id="description">{{description}}</textarea>
+</div>
+<div>
+    <p>priority of task</p>
+    <select name="priority "id="priority">
+        <option value="current">{{priority}}</option>
+        <option value="true">High Priority</option>
+        <option value="false">Low Priority</option>
+    </select>
+</div>
+<div>
+    <p>due date of task</p>
+    <input type="date" id="due-date" value="{{format_html_date due_date}}"></input>
+</div>
+<br>
+<div>
+    <button class="update-button" data-id="{{id}}">UPDATE</button>
+</div>
+
+<script src="/js/update.js"></script>

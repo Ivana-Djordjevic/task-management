@@ -1,2 +1,54 @@
-<!-- Loop over each object in the projects array -->
-<h1>I AM HERE TO BE USED</h1>
+{{#if logged_in}}
+    <h1> Hello {{ name }}</h1>
+    <div>
+        <button class="new-task">Create New Task</button>
+    </div>
+
+    <div id="task-form" class="hidden">
+        <h3>
+            Create New Task
+        </h3>
+        <form class="new-task-form">
+            <div>
+                <label for="task-name">Task name:</label>
+                <input class="form-input" type="text" id="task-name" name="task-name"/>
+            </div>
+            <div>
+                <label for="task-description">description:</label>
+                <textarea id="task-description" name="task-description"></textarea>
+            </div>
+            <div>
+                <button type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+
+    {{#if tasks.length}}
+        <div class="task-list">
+            <h3>All Tasks:</h3>
+            {{#each tasks as |task|}}
+                <div>
+                    <h4><a href="/task/{{task.id}}">{{task.name}}</a></h4>
+                </div>
+                <div>
+                    <p>{{task.description}}</p>
+                </div>
+                <div>
+                    <p class="priority">{{task.priority}}</p>
+                </div>
+                <div>
+                    <button class="delete-button" data-id="{{task.id}}">DELETE</button>
+                    <button class="edit-button" data-id="{{task.id}}">UPDATE</button>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+    
+{{else}}
+    <h1>Welcome!</h1>
+    <h3>
+        Please login/sign up to view your tasks.
+    </h3>
+{{/if}}
+
+<script src=" /js/task.js"></script>

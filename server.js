@@ -20,7 +20,7 @@ const sess = {
   // This IS essentially the session
   cookie: {
     // when the cookie will expire (in ms)
-    maxAge: 300000,
+    maxAge: 3000000,
     // prevents access through JS in the client
     httpOnly: true,
     // Server and Client will reject if not served from HTTPS
