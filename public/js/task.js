@@ -4,3 +4,5 @@ const newTaskBtn = document.querySelector('.new-task');
 newTaskBtn.addEventListener('click', () => {
     taskForm.classList.remove('hidden')
 });
+
+
