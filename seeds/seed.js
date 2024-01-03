@@ -1,12 +1,17 @@
+const seedTasks = require('./task-seed');
+const seedUsers = require('./user-seed');
+
 const sequelize = require('../config/connection');
-const { User } = require('../models');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
+  console.log('\n----- DATABASE SYNCED -----\n');
 
- /** 
-  * DO SEEDS HERE
-  */
+  await seedUsers();
+  console.log('\n----- USERS SEEDED -----\n');
+  
+  await seedTasks();
+  console.log('\n----- TASKS SEEDED -----\n');
 
   process.exit(0);
 };
