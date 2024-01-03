@@ -9,9 +9,18 @@
 <div>
     <p>priority of task</p>
     <select name="priority "id="priority">
-        <option value="current">{{priority}}</option>
+        <option class="priority" value="current">{{priority}}</option>
         <option value="true">High Priority</option>
         <option value="false">Low Priority</option>
+    </select>
+</div>
+<div>
+    <p>progress of task</p>
+    <select name="progress "id="progress">
+        <option class="progress" "current">{{progress}}</option>
+        <option value="1">Not started</option>
+        <option value="2">In progress</option>
+        <option value="3">Completed</option>
     </select>
 </div>
 <div>
@@ -23,4 +32,5 @@
     <button class="update-button" data-id="{{id}}">UPDATE</button>
 </div>
 
-<script src="/js/update.js"></script>
+<script src="/js/priorities.js"></script>
+<script src="/js/progress.js"></script>
