@@ -22,6 +22,10 @@ Task.init(
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
+        progress: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
         due_date: {
             type: DataTypes.DATE,
             allowNull: false,
