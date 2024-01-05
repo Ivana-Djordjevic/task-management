@@ -14,14 +14,14 @@ router.get('/task', withAuth, async (req, res) => {
 });
 
 // GET route to retrieve a single task by ID
-router.get('/task/:id', withAuth, async (req, res) => {
-    try {
-        const task = await Task.findByPk(req.params.id);
-        res.json(task);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+// router.get('/task/:id', withAuth, async (req, res) => {
+//     try {
+//         const task = await Task.findByPk(req.params.id);
+//         res.json(task);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 // POST route to add task
 router.post('/task', withAuth, async (req, res) => {
@@ -60,3 +60,5 @@ router.delete('/task/:id', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;
