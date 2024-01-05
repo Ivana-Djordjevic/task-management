@@ -1,13 +1,11 @@
 // Handler for "Update" button click
 const handleUpdate = async (event) => {
-    event.preventDefault();
-
-    // Get task ID from the update button's data attribute
-    const taskID = event.target.getAttribute('data-id');
-    console.log('Update button clicked');
-
+    if (event.target.matches('.task-list .edit-button')) {      
+        const id = event.target.getAttribute('data-id');
+      
+        document.location.replace(`/edit/${id}`);
+      }
+    
 }
 
-// Event listener to for update button
-console.log('Attempting to attach event listener');
-document.querySelector('.update-button').addEventListener('click', handleUpdate);
+document.querySelector('.task-list').addEventListener('click', handleUpdate);
