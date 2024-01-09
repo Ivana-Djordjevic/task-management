@@ -30,6 +30,10 @@ Task.init(
             type: DataTypes.DATE,
             allowNull: false,
         },
+        notification: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

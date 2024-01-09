@@ -5,8 +5,7 @@ const taskRoutes = require('./taskRoutes');
 router.get('/', (req, res) => {
     res.send('working')
 })
+
 router.use('/users', userRoutes);
-// router.use('/notification', notificationRoutes);
-router.use('/task', taskRoutes);
 
 module.exports = router;
