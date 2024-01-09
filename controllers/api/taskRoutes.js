@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { Task } = require('../models');
-const withAuth = require('../utils/auth');
+const { Task } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET route to retrieve all tasks
-router.get('/task', withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const task = await Task.findAll();
         res.json(task);
@@ -24,7 +24,7 @@ router.get('/task', withAuth, async (req, res) => {
 // });
 
 // POST route to add task
-router.post('/task', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try{
         const newTask = await Task.create(req.body);
         res.json(newTask);
@@ -34,7 +34,8 @@ router.post('/task', withAuth, async (req, res) => {
 });
 
 // PUT route to update a task by ID
-router.put('/task/:id', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
+    console.log(req.body)
     try {
         const updateTask = await Task.update(req.body, {
             where: {
@@ -43,12 +44,13 @@ router.put('/task/:id', withAuth, async (req, res) => {
         });
         res.json(updateTask);
     } catch (err) {
+        console.log(err)
         res.status(400).json(err);
     }
 });
 
 // DELETE route to delete task by ID
-router.delete('/task/:id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const deleteTask = await Task.destroy({
             where: {
