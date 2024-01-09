@@ -32,7 +32,7 @@ const sendEmail = (to, subject, text) => {
 const scheduleEmail = (dueDate, emailDetails) => {
     const currentTime = new Date().getTime();
     const dayBefore = 24*60*60*1000
-    const dueTime = new Date(new Date().getTime()-dayBefore).getTime()
+    const dueTime = new Date(new Date(dueDate).getTime()-dayBefore).getTime()
     const timeDifference = dueTime - currentTime;
   
     if (timeDifference > 0) {
