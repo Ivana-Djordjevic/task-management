@@ -4,10 +4,13 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-const nodeMailer = require('nodemailer');
+const { sendEmail } = require('./utils/nodemailer')
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const { Notification } = require('./models');
+const { secureHeapUsed } = require('crypto');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -51,6 +54,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+function pollEmails() {
+  setInterval(async() => {
+    const scheduledEmails = await Notification.findAll({
+      where: {
+        due_date: new Date ()
+      }
+    })
+    scheduledEmails.forEach(async (email) => {
+      const emailDetails = JSON.parse(email.details)
+      if(emailDetails.to) {
+        console.log(emailDetails)
+        const sender = await sendEmail(emailDetails.to, emailDetails.subject, emailDetails.text);
+        console.log (sender)
+        if(sender.response.includes('OK')) {
+          await Notification.destroy({
+            where: {
+              id:email.id
+            }
+          })
+          console.log('deleted one email')
+        }
+      }
+    })
+  }, 60*60*1000)
+}
+
 sequelize.sync({ force: false }).then(() => {
+  pollEmails()
   app.listen(PORT, () => console.log('Now listening'));
 });
