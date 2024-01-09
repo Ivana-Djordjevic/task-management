@@ -1,9 +1,25 @@
 const router = require('express').Router();
-const { Task } = require('../models');
-const withAuth = require('../utils/auth');
-const { scheduleEmail } = require('../../utils/nodemailer');
+const { Task, Notification } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-
+const scheduleEmail = async (dueDate, emailDetails) => {
+    const currentTime = new Date().getTime();
+    const dayBefore = 24*60*60*1000
+    const dueTime = new Date(new Date(dueDate).getTime()-dayBefore)
+    const timeDifference = dueTime - currentTime;
+    console.log('due time: ' , new Date(dueTime))
+    console.log(timeDifference)
+    try {
+        const notification = await Notification.create({
+            due_date: dueTime,
+            details: JSON.stringify(emailDetails)
+        })
+        console.log(notification)   
+    }
+    catch (err) {
+        console.log(err)
+    }
+};
 
 // POST route to add task
 router.post('/', withAuth, async (req, res) => {
@@ -17,7 +33,7 @@ router.post('/', withAuth, async (req, res) => {
         text: `This is a reminder that your task ${req.body.name}: ${req.body.description} is due tomorrow.`,
         };
 
-        scheduleEmail(newTask.due_date, emailDetails);
+        await scheduleEmail(newTask.due_date, emailDetails);
 
         res.json(newTask);
     } catch (err) {

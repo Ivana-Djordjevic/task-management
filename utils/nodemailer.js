@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
+const { Notification } = require('../models/Notification');
 
 // Create a Nodemailer transporter
 const transporter = nodemailer.createTransport(smtpTransport({
@@ -12,36 +13,35 @@ const transporter = nodemailer.createTransport(smtpTransport({
 }));
 
 // Function to send the email
-const sendEmail = (to, subject, text) => {
+const sendEmail = async (to, subject, text) => {
     const mailOptions = {
       from: 'task.management.project.bootcamp@gmail.com',
       to,
       subject,
       text,
+    //   text: generateEmail(text),
+    // create function to generate an HTML body 
     };
-  
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        return console.error(error);
-      }
-      console.log('Email sent:', info.response);
-    });
+    return await transporter.sendMail(mailOptions);
 };
   
 // Function to schedule email based on due date
-const scheduleEmail = (dueDate, emailDetails) => {
+const scheduleEmail = async (dueDate, emailDetails) => {
     const currentTime = new Date().getTime();
     const dayBefore = 24*60*60*1000
-    const dueTime = new Date(new Date().getTime()-dayBefore).getTime()
+    const dueTime = new Date(new Date(dueDate).getTime()-dayBefore)
     const timeDifference = dueTime - currentTime;
-  
-    if (timeDifference > 0) {
-      // Schedule the email to be sent when the due date is reached
-      setTimeout(() => {
-        sendEmail(emailDetails.to, emailDetails.subject, emailDetails.text);
-      }, timeDifference);
-    } else {
-      console.log('Due date has already passed.');
+    // console.log('due time: ' , new Date(dueTime))
+    // console.log(timeDifference)
+    try {
+        const notification = await Notification.create({
+            due_date: dueTime,
+            details: JSON.stringify(emailDetails)
+        })
+        console.log(notification)   
+    }
+    catch (err) {
+        console.log(err)
     }
 };
 
