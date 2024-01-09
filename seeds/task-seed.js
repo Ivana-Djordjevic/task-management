@@ -7,6 +7,7 @@ const TaskData = [
         "priority": true,
         "progress": 1,
         "due_date": new Date ('2024-01-05'),
+        "notification": true,
         "user_id": 1,
     },
     {
@@ -15,6 +16,7 @@ const TaskData = [
         "priority": false,
         "progress": 2,
         "due_date": new Date ('2024-01-10'),
+        "notification": false,
         "user_id": 1,
     },
     {
@@ -23,6 +25,7 @@ const TaskData = [
         "priority": false,
         "progress": 3,
         "due_date": new Date ('2024-01-03'),
+        "notification": false,
         "user_id": 1,
     },
     {
@@ -31,6 +34,7 @@ const TaskData = [
         "priority": true,
         "progress": 1,
         "due_date": new Date ('2024-01-20'),
+        "notification": true,
         "user_id": 1,
     },
     {
@@ -39,6 +43,7 @@ const TaskData = [
         "priority": true,
         "progress": 1,
         "due_date": new Date ('2024-01-01'),
+        "notification": true,
         "user_id": 1,
     },
 ];
