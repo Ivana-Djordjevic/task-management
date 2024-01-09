@@ -1,12 +1,6 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
-const notificationRoutes = require('./notificationRoutes');
-const taskRoutes = require('./taskRoutes');
-router.get('/', (req, res) => {
-    res.send('workimg')
-})
+
 router.use('/users', userRoutes);
-// router.use('/notification', notificationRoutes);
-router.use('/task', taskRoutes);
 
 module.exports = router;

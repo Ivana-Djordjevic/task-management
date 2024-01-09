@@ -1,35 +1,27 @@
 const router = require('express').Router();
-const { Task } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Task } = require('../models');
+const withAuth = require('../utils/auth');
+const { scheduleEmail } = require('../../utils/nodemailer');
 
-// GET route to retrieve all tasks
-router.get('/', withAuth, async (req, res) => {
-    try {
-        const task = await Task.findAll();
-        res.json(task);
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err);
-    }
-});
 
-// GET route to retrieve a single task by ID
-// router.get('/task/:id', withAuth, async (req, res) => {
-//     try {
-//         const task = await Task.findByPk(req.params.id);
-//         res.json(task);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
 
 // POST route to add task
 router.post('/', withAuth, async (req, res) => {
     try{
         const newTask = await Task.create(req.body);
+        console.log(newTask)
+
+        const emailDetails = {
+        to: req.session.email,
+        subject: 'Task Due Reminder',
+        text: `This is a reminder that your task ${req.body.name}: ${req.body.description} is due tomorrow.`,
+        };
+
+        scheduleEmail(newTask.due_date, emailDetails);
+
         res.json(newTask);
     } catch (err) {
-        res.status(400).json(err);
+            res.status(400).json(err);
     }
 });
 
