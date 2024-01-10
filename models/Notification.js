@@ -15,9 +15,9 @@ Notification.init(
         }
     },
     {
-        sequelize, 
-        timestamps: false, 
-        freezeTableName: true, 
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
         underscored: true,
         modelName: 'notification'
     }
