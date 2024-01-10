@@ -7,7 +7,7 @@ Task.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false, 
+            allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
@@ -44,9 +44,9 @@ Task.init(
         },
     },
     {
-        sequelize, 
-        timestamps: false, 
-        freezeTableName: true, 
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
         underscored: true,
         modelName: 'task'
     }

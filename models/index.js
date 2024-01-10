@@ -4,7 +4,7 @@ const Notification = require('./Notification');
 
 User.hasMany(Task, {
     foreignKey: 'user_id',
-})
+});
 
 Task.belongsTo(User, {
     foreignKey: 'user_id',
