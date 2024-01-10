@@ -2,24 +2,26 @@
     <div class="task-list">
         <h3>All Low Priority Tasks:</h3>
         {{#each tasks as |task|}}
-            <div>
-                <h4><a href="/task/{{task.id}}">{{task.name}}</a></h4>
-            </div>
-            <div>
-                <p>{{task.description}}</p>
-            </div>
-            <div>
-                <p class="priority">{{task.priority}}</p>
-            </div>
-            <div>
-                <p class="progress">{{task.progress}}</p>
-            </div>
-            <div>
-                <p>{{format_date due_date}}</p>
-            </div>
-            <div>
-                <button class="delete-button" data-id="{{task.id}}">DELETE</button>
-                <button class="edit-button" data-id="{{task.id}}">UPDATE</button>
+            <div class="task-card">    
+                <div>
+                    <h4><a href="/task/{{task.id}}">{{task.name}}</a></h4>
+                </div>
+                <div>
+                    <p>{{task.description}}</p>
+                </div>
+                <div>
+                    <p class="priority">{{task.priority}}</p>
+                </div>
+                <div>
+                    <p class="progress">{{task.progress}}</p>
+                </div>
+                <div>
+                    <p>{{format_date due_date}}</p>
+                </div>
+                <div>
+                    <button class="delete-button" data-id="{{task.id}}">DELETE</button>
+                    <button class="edit-button" data-id="{{task.id}}">UPDATE</button>
+                </div>
             </div>
         {{/each}}
     </div>

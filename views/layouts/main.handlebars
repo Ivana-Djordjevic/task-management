@@ -13,10 +13,10 @@
     <header>
           <h1>Task Management</h1>
       <nav>
-        <a href="/">All tasks</a>
-        <a href="/highPriority">High Priority Tasks</a>
-        <a href="/lowPriority">Low Priority Tasks</a>
-        <a href="/dueSoon">Due Soon</a>
+        <a href="/" class="nav-button">All tasks</a>
+        <a href="/highPriority" class = "nav-button">High Priority Tasks</a>
+        <a href="/lowPriority" class="nav-button">Low Priority Tasks</a>
+        <a href="/dueSoon" class="nav-button">Due Soon</a>
         {{#if logged_in}}
         |
         <button class="no-button" id="logout">logout</button>
@@ -34,6 +34,7 @@
   </div>
 
   {{#if logged_in}}
+  <script src="/js/login.js"></script>
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>

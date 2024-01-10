@@ -1,3 +1,64 @@
 .hidden {
     display: none;
 }
+
+h1 {
+    text-align: center;
+}
+
+nav {  
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.nav-button {
+    /* border: 1px solid green; */
+}
+
+.login-signup{
+    /* border: 3px solid brown; */
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.login{
+    /* border: 1px solid cyan; */
+    /* margin-right: 25px; */
+}
+.signup{
+    /* border: 1px solid cyan; */
+    /* margin-left: 25px; */
+    
+}
+body{
+    background-color: cadetblue;
+}
+.task-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    /* border: 1px solid cyan; */
+}
+.task-card{
+    border: 5px solid gray;
+    text-align: center;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.create-taskbtn{
+    /* border: 10px solid green; */
+    text-align: center;
+}
+.new-task-container{
+    display: flex;
+    justify-content: center;
+}
+
+.new-task-form {
+    /* border: 5px solid green; */
+}
