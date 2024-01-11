@@ -1,9 +1,9 @@
-const priorities = document.querySelectorAll('.priority') 
+const priorities = document.querySelectorAll('.priority');
 
 priorities.forEach(item => {
     if(item.textContent === 'true') {
-        item.textContent = 'High Priority'
+        item.textContent = 'High Priority';
     } else {
-        item.textContent = 'Low Priority'
+        item.textContent = 'Low Priority';
     }
-})
+});

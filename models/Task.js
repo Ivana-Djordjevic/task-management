@@ -7,7 +7,7 @@ Task.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false, 
+            allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
@@ -22,10 +22,11 @@ Task.init(
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
-        progress: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
+        // progress: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: true,
+        //     defaultValue: 0
+        // },
         due_date: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -43,9 +44,9 @@ Task.init(
         },
     },
     {
-        sequelize, 
-        timestamps: false, 
-        freezeTableName: true, 
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
         underscored: true,
         modelName: 'task'
     }

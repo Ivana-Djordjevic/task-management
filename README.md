@@ -1,5 +1,49 @@
 # personal task management system
 
+![License](https://img.shields.io/badge/License-MIT_License-lightblue.svg)
+
+## Table of Contents
+
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Credit](#credit)
+- [Project-Proposal](#project-proposal)
+
+## Description
+
+This is an app to keep track of your tasks. You can assign them a due date and a priority. And you can also choose to receive a notificatino the day before a task is due.
+
+screenshots:
+
+[deployed heroku link](https://task-managementt-6e5cfd5db620.herokuapp.com/login) 
+
+## Installation
+
+- bcrypt
+- connect-session-sequelize
+- dotenv
+- express
+- express-handlebars
+- express-session
+- mysql2
+- nodemailer
+- nodemailer-smtp-transport
+- sequelize
+
+## Usage
+
+A blog where the user can easily keep track of their tasks.
+
+## License
+
+This application is covered under: MIT License.
+
+## Credit
+
+Ivana Djordjevic, Mack Dixon, Manraj Uppal
+
 ## project proposal
 
 - name: personal task management system
@@ -12,19 +56,3 @@
     - can edit and/or delete tasks
     - can add a no
     - add task notifications (either through text, or email or browser API)
-
-
-## MVC Boilerplate
-
-### Set up
-this boilerlate is intended to be used as a starting point for any MVC project with minimal setup. To get started do the following steps:
-1. In `db/schema.sql` rename the databse and run the file to create your database. 
-2. Copy `.env.EXAMPLE` and populate with you credentials
-3. Run `npm i`
-4. Run `npm start`
-
-### What's included
-- Model example (User)
-- Basic Templates
-- Basic Controllers
-- Auth (Controller, middleware, and templates)
