@@ -13,9 +13,9 @@ nav {
     gap: 15px;
 }
 
-.nav-button {
+/* .nav-button { */
     /* border: 1px solid green; */
-}
+/* } */
 
 .login-signup{
     /* border: 3px solid brown; */
@@ -24,15 +24,15 @@ nav {
     gap: 50px;
 }
 
-.login{
+/* .login{ */
     /* border: 1px solid cyan; */
-    /* margin-right: 25px; */
-}
-.signup{
+    /* margin-inline-end: 25px; */
+/* } */
+/* .signup{ */
     /* border: 1px solid cyan; */
-    /* margin-left: 25px; */
+    /* margin-inline-start: 25px; */
     
-}
+/* } */
 body{
     background-color: cadetblue;
 }
@@ -46,7 +46,7 @@ body{
 .task-card{
     border: 5px solid gray;
     text-align: center;
-    width: 300px;
+    inline-size: 300px;
     border-radius: 10px;
 }
 
@@ -59,6 +59,6 @@ body{
     justify-content: center;
 }
 
-.new-task-form {
+/* .new-task-form { */
     /* border: 5px solid green; */
-}
+/* } */
