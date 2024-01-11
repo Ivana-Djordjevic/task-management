@@ -24,9 +24,15 @@ const scheduleEmail = async (dueDate, emailDetails) => {
 // POST route to add task
 router.post('/', withAuth, async (req, res) => {
     try{
-        const newTask = await Task.create(req.body);
-        console.log(newTask)
-
+        const { name, description, notification, priority, due_date, user_id } = req.body;
+        const newTask = await Task.create({
+            name: name,
+            description: description,
+            notification: notification,
+            priority: priority == "high" ? true : false,
+            due_date: due_date,
+            user_id: req.session.user_id
+        });
         const emailDetails = {
         to: req.session.email,
         subject: 'Task Due Reminder',
@@ -37,6 +43,7 @@ router.post('/', withAuth, async (req, res) => {
 
         res.json(newTask);
     } catch (err) {
+        console.log(err)
             res.status(400).json(err);
     }
 });

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = document.getElementById('name').value;
         const description = document.getElementById('description').value;
         const priority = document.getElementById('priority').value;
-        const progress = document.getElementById('progress').value;
+        // const progress = document.getElementById('progress').value;
         const dueDate = document.getElementById('due-date').value;
   
         const updatedTask = {
