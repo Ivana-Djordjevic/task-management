@@ -17,7 +17,11 @@ This is an app to keep track of your tasks. You can assign them a due date and a
 
 screenshots:
 
+<<<<<<< HEAD
 [deployed heroku link](google.com) // update upon deployment, currently links to google.com
+=======
+[deployed heroku link](https://task-managementt-6e5cfd5db620.herokuapp.com/login) 
+>>>>>>> origin
 
 ## Installation
 
