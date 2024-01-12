@@ -1,23 +1,25 @@
 
-<div class="task-list">
-    <div>
-        <h4>{{task.name}}</h4>
-    </div>
-    <div>
-        <p>{{task.description}}</p>
-    </div>
-    <div>
-        <p class="priority">{{task.priority}}</p>
-    </div>
-    <div>
-        <p class="progress">{{task.progress}}</p>
-    </div>
-    <div>
-        <p>{{format_date task.due_date}}</p>
-    </div>
-    <div>
-        <button class="delete-button" data-id="{{task.id}}">DELETE</button>
-        <button class="edit-button" data-id="{{task.id}}">EDIT</button>
+<div class="single-task-container">
+    <div class="task-card">
+        <div>
+            <h4>{{task.name}}</h4>
+        </div>
+        <div>
+            <p>{{task.description}}</p>
+        </div>
+        <div>
+            <p class="priority">{{task.priority}}</p>
+        </div>
+        <div>
+            <p class="progress">{{task.progress}}</p>
+        </div>
+        <div>
+            <p>{{format_date task.due_date}}</p>
+        </div>
+        <div>
+            <button class="delete-button" data-id="{{task.id}}">DELETE</button>
+            <button class="edit-button" data-id="{{task.id}}">EDIT</button>
+        </div>
     </div>
 </div>
 
