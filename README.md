@@ -15,7 +15,12 @@
 
 This is an app to keep track of your tasks. You can assign them a due date and a priority. And you can also choose to receive a notificatino the day before a task is due.
 
-screenshots:
+screenshots:<br>
+![Screenshot](./assets/images/proj2_1.png)<br>
+![Screenshot](./assets/images/proj2_2.png)<br>
+![Screenshot](./assets/images/proj2_3.png)<br>
+![Screenshot](./assets/images/proj2_4.png)<br>
+![Screenshot](./assets/images/proj2_5.png)
 
 [deployed heroku link](google.com) // update upon deployment, currently links to google.com
 
