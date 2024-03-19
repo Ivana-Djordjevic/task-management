@@ -3,15 +3,21 @@ const { Task, Notification } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 const scheduleEmail = async (dueDate, emailDetails) => {
-    const currentTime = new Date().getTime();
-    const dayBefore = 24*60*60*1000;
-    const dueTime = new Date(new Date(dueDate).getTime()-dayBefore);
-    const timeDifference = dueTime - currentTime;
-    console.log('due time: ' , new Date(dueTime));
-    console.log(timeDifference);
+    // const currentTime = new Date().getTime();
+    // const dayBefore = 24*60*60*1000;
+    // let dueTime;
+    // dueTime = new Date(new Date(dueDate).getTime()-dayBefore).getTime();
+    // let timeDifference;
+    // if(new Date(dueDate).getTime() <= currentTime + dayBefore) {
+    //     timeDifference = 30000 // new Date(dueDate).getTime();
+    // } else {
+    //      timeDifference = dueTime - currentTime;
+    // }
+    // console.log('due time: ' , new Date(dueTime));
+    // console.log(timeDifference);
     try {
         const notification = await Notification.create({
-            due_date: dueTime,
+            due_date: dueDate,
             details: JSON.stringify(emailDetails)
         });
         console.log(notification);

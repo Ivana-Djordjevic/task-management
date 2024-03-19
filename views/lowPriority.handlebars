@@ -1,6 +1,6 @@
 {{#if tasks.length}}
+    <h3>All Low Priority Tasks:</h3>
     <div class="task-list">
-        <h3>All Low Priority Tasks:</h3>
         {{#each tasks as |task|}}
             <div class="task-card">
                 <div>
@@ -20,7 +20,7 @@
                 </div>
                 <div>
                     <button class="delete-button" data-id="{{task.id}}">DELETE</button>
-                    <button class="edit-button" data-id="{{task.id}}">UPDATE</button>
+                    <button class="edit-button" data-id="{{task.id}}">EDIT</button>
                 </div>
             </div>
         {{/each}}

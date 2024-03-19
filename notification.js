@@ -19,7 +19,7 @@ const sendEmail = (to, subject, text) => {
         subject,
         text,
     };
-
+    console.log(mailOptions)
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             return console.error(error);
@@ -35,7 +35,7 @@ const scheduleEmail = (dueDate, emailDetails) => {
     const dueTime = new Date(new Date().getTime()+10000).getTime();
     // Calculate time difference in milliseconds
     const timeDifference = dueTime - currentTime;
-
+    console.log(timeDifference)
     if (timeDifference > 0) {
     // Schedule the email to be sent when the due date is reached
         setTimeout(() => {

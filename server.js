@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const { sendEmail } = require('./utils/nodemailer');
+const { Op } = require('sequelize');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -55,12 +56,21 @@ app.use(routes);
 
 function pollEmails() {
     setInterval(async() => {
-        const scheduledEmails = await Notification.findAll({
+         const currentTime = new Date().getTime();
+    const dayBefore = 24*60*60*1000;
+    let dueTime = new Date(currentTime+dayBefore);
+    
+        const scheduledEmailsData = await Notification.findAll({
             where: {
-                due_date: new Date ()
+                // due_date: {[Op.lte]: dueTime, [Op.gt]: currentTime}
+                due_date: {[Op.between]: [ currentTime, currentTime + dayBefore]}
             }
         });
-        scheduledEmails.forEach(async (email) => {
+        const scheduledEmails = scheduledEmailsData.map(item => item.get({
+            plain: true
+        }))
+        console.log('scheduledEmails', scheduledEmails)
+        return scheduledEmails.forEach(async (email) => {
             const emailDetails = JSON.parse(email.details);
             if(emailDetails.to) {
                 console.log(emailDetails);
@@ -76,7 +86,7 @@ function pollEmails() {
                 }
             }
         });
-    }, 60*60*1000);
+    }, 10*1000);
 }
 
 sequelize.sync({ force: false }).then(() => {
