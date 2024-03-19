@@ -1,6 +1,6 @@
 {{#if tasks.length}}
+    <h3>All tasks arranged by due date:</h3>
     <div class="task-list">
-        <h3>All tasks arranged by due date:</h3>
         {{#each tasks as |task|}}
             <div class="task-card">
                 <div>
@@ -12,15 +12,15 @@
                 <div>
                     <p class="priority">{{task.priority}}</p>
                 </div>
-                <div>
+                {{!-- <div>
                     <p class="progress">{{task.progress}}</p>
-                </div>
+                </div> --}}
                 <div class="due-date">
                     <p>{{format_date due_date}}</p>
                 </div>
                 <div>
                     <button class="delete-button" data-id="{{task.id}}">DELETE</button>
-                    <button class="edit-button" data-id="{{task.id}}">UPDATE</button>
+                    <button class="edit-button" data-id="{{task.id}}">EDIT</button>
                 </div>
             </div>
         {{/each}}

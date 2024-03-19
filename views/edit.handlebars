@@ -1,14 +1,14 @@
-<div class="edit-task-container">
+<form class="edit-task-container form">
     <div>
-        <p>name of task</p>
+        <p class="p">Name of Task:</p>
         <textarea id="name">{{name}}</textarea>
     </div>
     <div>
-        <p>description of task</p>
+        <p class="p">Description of Task:</p>
         <textarea id="description">{{description}}</textarea>
     </div>
     <div>
-        <p>priority of task</p>
+        <p class="p">Priority of Task:</p>
         <select name="priority "id="priority">
             <option value="true" {{#if priority}}selected{{/if}}>High Priority</option>
             <option value="false" {{#unless priority}}selected{{/unless}}>Low Priority</option>
@@ -24,7 +24,7 @@
         </select>
     </div> --}}
     <div>
-        <p>due date of task</p>
+        <p class="p">Due Date of Task:</p>
         <input type="date" id="due-date" value="{{format_html_date due_date}}"></input>
     </div>
     <br>
