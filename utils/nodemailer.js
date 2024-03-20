@@ -6,6 +6,8 @@ const { Notification } = require('../models/Notification');
 const transporter = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
     host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         user: 'task.management.project.bootcamp@gmail.com',
         pass: process.env.EMAIL_PASSWORD,
@@ -22,6 +24,7 @@ const sendEmail = async (to, subject, text) => {
     //   text: generateEmail(text),
     // create function to generate an HTML body
     };
+    console.log('transporter send mail')
     return await transporter.sendMail(mailOptions);
 };
 
